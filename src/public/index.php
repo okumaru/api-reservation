@@ -26,9 +26,8 @@ try {
      */
     $application = new Application($di);
 
-    $response = $application->handle($_SERVER['REQUEST_URI']);
-
-    $response->send();
+    echo $application->handle($_SERVER['REQUEST_URI'])->getContent();
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
