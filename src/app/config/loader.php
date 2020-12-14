@@ -9,5 +9,6 @@ $loader
     ->registerNamespaces(
         [
             'MyApp\Controllers' => __DIR__ . '/../controllers/',
+            'MyApp\Models' => __DIR__ . '/../models/',
         ]
     )->register();
