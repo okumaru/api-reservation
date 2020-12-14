@@ -8,6 +8,7 @@ use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -92,3 +93,17 @@ Sentry\init([
     'dsn' => 'https://1024f6d3c21c480b8bf8c244e9fd0a54@o459103.ingest.sentry.io/5552883',
     'traces_sample_rate' => 1.0
 ]);
+
+/**
+ * Start config eloquent database
+ */
+$capsule = new Capsule;
+$capsule->addConnection([
+    "driver" => "mysql",
+    "host" =>"10.10.1.3",
+    "database" => "reservation",
+    "username" => "root",
+    "password" => "jagoan123"
+]);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
