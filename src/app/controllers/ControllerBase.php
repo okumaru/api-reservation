@@ -22,14 +22,10 @@ class ControllerBase extends Controller
 	public function afterExecuteRoute(Dispatcher $dispatcher)
 	{
 		$content = $dispatcher->getReturnedValue();
-		
-  //       // some logic for prematurely generated content (debugs/warnings)
-  //       // ...
 
         $this->response->setContentType('application/json', 'UTF-8');
         $this->response->setJsonContent($content);
         return $this->response->send();
-
 	}
 
 }
