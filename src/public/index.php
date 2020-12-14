@@ -7,6 +7,11 @@ use Phalcon\Mvc\Application;
 try {
 
     /**
+     * Load vendor library
+     */
+    require __DIR__ . "/../vendor/autoload.php";
+
+    /**
      * Read the configuration
      */
     $config = include __DIR__ . "/../app/config/config.php";

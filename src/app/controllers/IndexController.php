@@ -5,10 +5,26 @@ namespace MyApp\Controllers;
 class IndexController extends ControllerBase
 {
 
-    public function indexAction()
+    public function indexAction() : array
     {
-        echo '[' . __METHOD__ . ']';
+        return ['welcome to API Reservation'];
     }
 
-    
+    public function sentryAction() : array
+    {
+    	try {
+    		
+    		throw new \Exception("My first Sentry error!");
+
+    	} catch ( \Exception $e ) {
+    		
+    		return [
+    			'status' => 0,
+    			'message' => $e->getMessage()
+    		];
+
+    	}
+    	
+    }
+
 }

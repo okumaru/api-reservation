@@ -84,3 +84,11 @@ $di->set('dispatcher', function () {
 
     return $dispatcher;
 });
+
+/**
+ * Start config sentry, catch all error for this app
+ */
+Sentry\init([
+    'dsn' => 'https://1024f6d3c21c480b8bf8c244e9fd0a54@o459103.ingest.sentry.io/5552883',
+    'traces_sample_rate' => 1.0
+]);
