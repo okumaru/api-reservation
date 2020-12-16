@@ -9,14 +9,11 @@ use Phalcon\Http\Response;
 class ControllerBase extends Controller
 {
 
+	protected $post;
+
 	public function beforeExecuteRoute(Dispatcher $dispatcher)
 	{
-		#....
-	}
-
-	protected function initialize()
-	{
-		#....
+		$this->post = $this->request->getPost();
 	}
 
 	public function afterExecuteRoute(Dispatcher $dispatcher)
